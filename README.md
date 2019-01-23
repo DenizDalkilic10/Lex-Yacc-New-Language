@@ -1,2 +1,2 @@
-# Lex-Yacc-New-Language-2F-
+# Lex-Yacc-New-Language
 Programming Languages Term Project - Designed a new language for robots using Lex and Yacc.
