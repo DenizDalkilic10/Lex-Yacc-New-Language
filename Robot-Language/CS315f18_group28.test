@@ -1,0 +1,87 @@
+START
+!!EXAMPLE PROGRAM1!!
+    float data ;
+    int x = 100 ;
+    for ( int i = 0 ; i <= x ; i = i + 1 )
+    <<
+        if ( i =? 0)
+        <<
+            Grab ( ) ;
+        >>
+         if ( i =? 1 )
+        <<
+            Release ( ) ;
+        >>
+         if ( i * 2 < x && i >= 3 )
+        <<
+            Turn ( 10 ) ;
+        >>
+        if ( i - 2 ~=? x || i < 20 )
+        <<
+            data = Read ( 1111 ) ;
+        >>
+        if ( i / 3 > 10 )
+        <<
+            data = Receive ( 2222 ) ;
+        >>
+         if ( i + 2 <= 20 )
+        <<
+            Send ( 3333 ) ;
+        >>
+    >>
+
+    !!EXAMPLE PROGRAM2!!
+      !! Robot Name: Çak?lta?? 
+    int height_of_robot = 180;
+    int steps = 0 ;  !! number of steps 
+    float height = 0 ;  !! target altitude 
+    float velocity = 0 ; !!velocity of robot 
+    int is_not_moving = 1;  !! Checks whether the robot is stopped or not  or not 1 is true 0 is false
+
+    void Fly ( float height , float velocity )
+    <<
+        int travelling_time = (height - height_of_robot) / velocity ;
+        print height;
+        print velocity;
+        print travelling_time;
+        return ;
+    >>
+    
+    while ( is_not_moving )
+    <<
+        ask steps;
+        if ( height =? 0 )
+        <<
+            ask height;
+            ask velocity;
+            Move ( steps ) ;  !! identifies the distance traveled before take off
+            Fly ( height , velocity ) ;
+            is_not_moving = 0 ; !! 
+        >>
+               else
+                <<
+            if (height > 0 && velocity > 0)
+            <<
+                Move ( steps ) ;  !! identifies the distance traveled before take off
+                             Fly (height, velocity);
+                is_not_moving = 0; !! robot is moving 
+            >>
+            else             
+            <<
+                height = 0;
+                velocity = 0;
+            >>
+                 >>
+        >>
+    !!Random Calculations!!
+    int a;
+    a= 0;
+    int b = 25;
+    float c = 67.88;
+    const int MY_NUMBER = 10;
+    float result = a * b + c / MY_NUMBER + a / (b * c + a - b /a + c);
+    !!Random Relations
+    if(a > b <= c =? MY_NUMBER >= a ~=? c)<< >>
+while (a > (b <= c) =? (MY_NUMBER >= a) ~=? c) << !!Legendary Random 
+>>
+END
